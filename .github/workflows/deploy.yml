@@ -25,7 +25,7 @@ jobs:
             - name: build and push image
               uses: docker/build-push-action@v4
               with:
-                context: .
+                context: ./frontend
                 push: true
                 file: ./frontend/Dockerfile  
                 tags: strontium007/practice/frontend:latest
