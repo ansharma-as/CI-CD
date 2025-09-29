@@ -32,3 +32,15 @@ jobs:
 
             - name: verify pushed image
               run: docker pull strontium007/practice:latest
+
+            - name: Deploying to EC2 Server
+              uses: appleboy/ssh-action@master
+              with:
+                host: ${{ secrets.SSH_HOST }}
+                username: ${{ secrets.SSH_USERNNAME }}
+                key: ${{ secrets.SSH_KEY }}
+                script:
+                    sudo docker pull strontium007/practice:latest
+                    sudo docker stop practice || true
+                    sudo docker rm practice || true
+                    sudo docker run -d -p 80:80 --name practice strontium007/practice:latest
