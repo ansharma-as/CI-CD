@@ -27,8 +27,8 @@ jobs:
               with:
                 context: .
                 push: true
-                tags: ${{ secrets.DOCKER_USERNAME }}/frontend:latest
-                file: ./Dockerfile
+                file: ./frontend/Dockerfile  
+                tags: strontium007/practice/frontend:latest
 
             - name: verify pushed image
-              run: docker pull ${{ secrets.DOCKER_USERNAME }}/frontend:latest && docker run ${{ secrets.DOCKER_USERNAME }}/frontend:latest npm --version
+              run: docker pull strontium007/practice/frontend:latest
