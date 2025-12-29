@@ -39,7 +39,7 @@ jobs:
           username: ${{ secrets.SSH_USERNNAME }}
           key: ${{ secrets.SSH_KEY }}
           script:
-              sudo docker pull strontium007/practice:latest
-              sudo docker stop practice || true
-              sudo docker rm practice || true
-              sudo docker run -d -p 80:80 --name practice strontium007/practice:latest
+            sudo docker pull strontium007/practice:latest
+            sudo docker stop practice || true
+            sudo docker rm practice || true
+            sudo docker run -d -p 80:80 --name practice strontium007/practice:latest
